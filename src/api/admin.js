@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://pure-waters-81841.herokuapp.com/api";
+const baseURL =
+  "https://4457-2001-b011-7003-76bd-f067-d1c2-c9bc-905.ngrok-free.app";
 
 const axiosInstance = axios.create({
   baseUrl: baseURL,
@@ -26,7 +27,7 @@ export const adminlogin = async ({ account, password }) => {
       password,
     });
 
-        return data;
+    return data;
   } catch (error) {
     console.error("[Login Failed]:", error);
   }
@@ -37,7 +38,7 @@ export const getUsers = async () => {
     const { data } = await axiosInstance.get(`${baseURL}/admin/users`);
     return data;
   } catch (error) {
-    console.error('[Get Users failed]: ', error);
+    console.error("[Get Users failed]: ", error);
   }
 };
 
@@ -60,4 +61,3 @@ export const deleteTweets = async (id) => {
     console.error("[Get Tweets failed]: ", error);
   }
 };
-

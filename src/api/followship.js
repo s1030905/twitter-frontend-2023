@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://pure-waters-81841.herokuapp.com/api/followships";
+const baseURL =
+  "https://4457-2001-b011-7003-76bd-f067-d1c2-c9bc-905.ngrok-free.app";
 
 const axiosInstance = axios.create({
   baseUrl: baseURL,
@@ -22,7 +23,7 @@ axiosInstance.interceptors.request.use(
 export const createFollow = async (id) => {
   try {
     const { data } = await axiosInstance.post(`${baseURL}`, {
-      id
+      id,
     });
     return data;
   } catch (error) {
@@ -38,4 +39,3 @@ export const deleteFollow = async (id) => {
     console.error("[Get Tweets failed]: ", error);
   }
 };
-

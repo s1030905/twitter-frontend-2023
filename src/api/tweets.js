@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://pure-waters-81841.herokuapp.com/api";
+const baseURL =
+  "https://4457-2001-b011-7003-76bd-f067-d1c2-c9bc-905.ngrok-free.app";
 
 const axiosInstance = axios.create({
   baseURL: baseURL,
@@ -56,7 +57,9 @@ export const getTweetReplies = async (id) => {
 
 export const createTweet = async ({ description }) => {
   try {
-    const { data } = await axiosInstance.post(`${baseURL}/tweets`, { description });
+    const { data } = await axiosInstance.post(`${baseURL}/tweets`, {
+      description,
+    });
     return data;
   } catch (error) {
     console.error("[Create Tweet failed]:", error);
@@ -67,9 +70,12 @@ export const createTweet = async ({ description }) => {
 
 export const createReply = async ({ id, comment }) => {
   try {
-    const { data } = await axiosInstance.post(`${baseURL}/tweets/${id}/replies`, {
-      comment,
-    });
+    const { data } = await axiosInstance.post(
+      `${baseURL}/tweets/${id}/replies`,
+      {
+        comment,
+      }
+    );
     return data;
   } catch (error) {
     console.error("[Create Reply failed]:", error);
@@ -79,7 +85,9 @@ export const createReply = async ({ id, comment }) => {
 //post 對推文按讚 api/tweets/id/like
 export const createLike = async (tweetId) => {
   try {
-    const { data } = await axiosInstance.post(`${baseURL}/tweets/${tweetId}/like`);
+    const { data } = await axiosInstance.post(
+      `${baseURL}/tweets/${tweetId}/like`
+    );
     return data;
   } catch (error) {
     console.error("[Create Like failed]:", error);
@@ -89,10 +97,11 @@ export const createLike = async (tweetId) => {
 //post 對推文取消按讚 api/tweets/id/unlike
 export const deleteLike = async (tweetId) => {
   try {
-    const { data } = await axiosInstance.post(`${baseURL}/tweets/${tweetId}/unlike`);
+    const { data } = await axiosInstance.post(
+      `${baseURL}/tweets/${tweetId}/unlike`
+    );
     return data;
   } catch (error) {
     console.error("[Create Unlike failed]:", error);
   }
 };
-

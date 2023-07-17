@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://pure-waters-81841.herokuapp.com/api";
+const baseURL =
+  "https://4457-2001-b011-7003-76bd-f067-d1c2-c9bc-905.ngrok-free.app";
 
 const axiosInstance = axios.create({
   baseUrl: baseURL,
@@ -115,8 +116,7 @@ export const putUser = async (payload) => {
 };
 
 export const putSetting = async (payload) => {
-  const { id, account, name, email, password, checkPassword } =
-    payload;
+  const { id, account, name, email, password, checkPassword } = payload;
   try {
     const { data } = await axiosInstance.put(`${baseURL}/users/${id}/setting`, {
       account,
@@ -128,9 +128,9 @@ export const putSetting = async (payload) => {
 
     return data;
   } catch (error) {
-    if ( error.response.status === 400) {
-    return error.response.data
-    // console.error("[put Setting failed]: ", error);
+    if (error.response.status === 400) {
+      return error.response.data;
+      // console.error("[put Setting failed]: ", error);
     }
   }
 };

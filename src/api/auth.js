@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const authURL = "https://pure-waters-81841.herokuapp.com/api/users";
+const authURL =
+  "https://4457-2001-b011-7003-76bd-f067-d1c2-c9bc-905.ngrok-free.app";
 
 const axiosInstance = axios.create({
   baseUrl: authURL,
@@ -26,24 +27,29 @@ export const login = async ({ account, password }) => {
       password,
     });
 
-return data
+    return data;
   } catch (error) {
     console.error("[Login Failed]:", error);
   }
 };
 
-export const signup = async ({ account, name, email, password, checkPassword }) => {
+export const signup = async ({
+  account,
+  name,
+  email,
+  password,
+  checkPassword,
+}) => {
   try {
-    const {data}  = await axiosInstance.post(`${authURL}`, {
+    const { data } = await axiosInstance.post(`${authURL}`, {
       account,
       name,
       email,
       password,
-      checkPassword
+      checkPassword,
     });
 
-    return data
-    
+    return data;
   } catch (error) {
     console.error("[Signup Failed]: ", error);
   }
