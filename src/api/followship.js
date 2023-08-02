@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL =
-  "http://localhost:8080/api/followships";
+  "https://limitless-brushlands-78493-40eb90179d50.herokuapp.com/api/followships";
 
 const axiosInstance = axios.create({
   baseUrl: baseURL,

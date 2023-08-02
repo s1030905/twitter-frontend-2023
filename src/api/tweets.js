@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL =
-  "http://localhost:8080/api";
+  "https://limitless-brushlands-78493-40eb90179d50.herokuapp.com/api";
 
 const axiosInstance = axios.create({
   baseURL: baseURL,
